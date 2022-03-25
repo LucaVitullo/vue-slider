@@ -40,5 +40,33 @@ const app = new Vue({
     data: {
         slides,
         indice: 0
+    },
+    methods: {
+
+        indicePrecedente(){
+            if(this.indice > 0){
+                this.indice --;
+            }else{
+                this.indice = this.slides.length -1;
+            }
+        },
+        indiceSuccessivo(){
+            if(this.indice < this.slides.length -1){
+                this.indice ++;
+            }else{
+                this.indice =0;
+            }
+        },
+
+        activeThumb(item){
+            const check = item.image === this.slides[this.indice].image;
+            if(check){
+                return 'thumb active'
+            }
+            
+            return 'thumb'
+        },
+        
+
     }
-})
+});

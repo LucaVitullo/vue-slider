@@ -22,9 +22,9 @@
           </div>
 
           <div class="thumbs">
-            <div class="prev"></div>
-            <div class="next"></div>
-            <div v-for="indice in slides" class="thumb" class="active">
+            <div class="prev" @click="indicePrecedente()"></div>
+            <div class="next" @click="indiceSuccessivo()"></div>
+            <div v-for="indice in slides" :class="activeThumb(indice)">
               <img :src="indice.image" :alt="indice.title" />
             </div>
           </div>
